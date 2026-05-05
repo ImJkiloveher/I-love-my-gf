@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom right, #ffd6e7, #ffe6f2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }.card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 350px;
+}
+
+h1 {
+  color: #ff4d88;
+}
+
+p {
+  font-size: 16px;
+  color: #444;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4d88;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.flowers {
+  display: none;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.heart {
+  position: fixed;
+  top: -10px;
+  color: #ff4d88;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>I love you 💖</h1>
+    <p>You mean so much to me. Every day with you is my favourite 💕</p>
+    <button onclick="showFlowers()">Click for flowers 🌸</button>
+    <div class="flowers" id="flowers">🌸 🌷 🌹 💐 🌺</div>
+  </div>  <script>
+    function showFlowers() {
+      document.getElementById('flowers').style.display = 'block';
+    }
+
+    // floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script></body>
+</html>
